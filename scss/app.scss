@@ -218,7 +218,11 @@ $break-small: 40em;
 	}
 	.speaker-list{
 		padding: 0em 3em;
-		
+		@media screen {
+			@media (max-width: $break-small){
+				padding: 1em 0.5em;
+			}
+		}
 		&:after {
 	    content: "";
 			position: absolute;
