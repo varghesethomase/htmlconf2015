@@ -41,8 +41,16 @@
 
 /* Variables */
 $default-logo-color: #E44D26;
+$break-small: 40em;
 /* Foundation Overrides */
-
+.top-bar-section li:not(.has-form) a:not(.button){
+	line-height: 4.3rem;
+	@media screen {
+		@media (max-width: $break-small){
+			line-height: 2.3em;
+		}
+	}
+}
 /* Global Styles */
 .fullwidth{
 	width: 100% !important;
@@ -83,6 +91,9 @@ $default-logo-color: #E44D26;
 	}
 	
 }
+.top-bar{
+	border-bottom: 1px solid #EEE;
+}
 .landing-section{
 	min-height: 95vh;
 	background-image: url('../images/details.png');
@@ -103,9 +114,6 @@ $default-logo-color: #E44D26;
 	h1,h3{
 		font-weight: 300;
 	}
-}
-.speaker-section{
-	height: 100vh;
 }
 .details-section{
 	background-color: #E6E6E6;
@@ -133,7 +141,7 @@ $default-logo-color: #E44D26;
 		}
 }
 .sponsors-section{
-	padding: 3em 0em;
+	padding: 3em 0em 5em 0em;
 	position: relative;
 	.sponsor-list{
 		padding: 1em 0em;
@@ -160,6 +168,11 @@ $default-logo-color: #E44D26;
 }
 .footer-navigation-link{
 	overflow: hidden;
+	&.footer-in-speakers{
+		img{
+			z-index: 4;
+		}
+	}
 	.footer-link{
 		height: 180px;
 		background-color: #F5F5F5;
@@ -188,6 +201,73 @@ $default-logo-color: #E44D26;
 		.section-overlay{
 			background: linear-gradient(135deg, #E54624 0%, #E95D1E 100%) repeat scroll 0% 0% transparent;
 			opacity: .95;
+		}
+	}
+}
+.speaker-section{
+	background-color: #FFF;
+	position: relative;
+	padding: 6em 0em;
+	.section-header{
+		padding: 0em 1.2em 1em;
+		@media screen {
+			@media (max-width: $break-small){
+				padding: 1em 0.5em;
+			}
+		}
+	}
+	.speaker-list{
+		padding: 0em 3em;
+		
+		&:after {
+	    content: "";
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			z-index: 0;
+			background-color: #E6E6E6;
+			display: block;
+			top: 90px;
+			bottom: 0px;
+			left: 0px;
+			right: 0px;
+		}
+	}
+	.speaker-list-item{
+		margin-bottom: 1.5em;
+		z-index: 1;
+		&>a{
+			background-color: #FFF;
+		}
+		p{
+			margin-bottom: 0.7em;
+		}
+		.section-heading{
+			padding: 1em 0em;
+		}
+		.speaker-pic{
+			height: auto;
+		}
+		img{
+			width: 100%;
+			height: 100%;
+			filter: grayscale(100%);
+		}
+		.speaker-details{
+			.name{
+				font-weight: 300;
+				color: #696969;
+				padding-top: 10px;
+				font-size: 22px;
+			}
+			.company{
+				color: #999;
+			}
+			.description{
+				font-size: 15px;
+				color: #696969;
+				padding-bottom: 1em;
+			}
 		}
 	}
 }
