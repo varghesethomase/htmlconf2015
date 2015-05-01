@@ -108,13 +108,13 @@ $default-logo-color: #E44D26;
 	height: 100vh;
 }
 .details-section{
-	background-color: $default-logo-color;
+	background-color: #E6E6E6;
 	padding: 3em 0em;
 	position: relative;
-	.section-overlay{
+	/* .section-overlay{
 		background-color: #F9F9F9;
 		opacity: .92;
-	}
+	} */
 	.about-us{
 		padding-bottom: 1em;
 		font-size: 1.1em;
