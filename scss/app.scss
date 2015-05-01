@@ -56,7 +56,8 @@ $default-logo-color: #E44D26;
 	right: 0px;
 	bottom: 0px;
 	top: 0px;
-
+	opacity: 0.8;
+	z-index: 2;
 }
 .section-header{
 	font-weight: 300;
@@ -64,13 +65,39 @@ $default-logo-color: #E44D26;
 	color: #222;
 	padding-bottom: 0.5em;
 }
+.no-padding-left-right{
+	padding-left: 0px;
+	padding-right: 0px;
+}
+.section-wrapper{
+	position: relative;
+	z-index: 3;
+	max-width: 64.093em;
+	min-width: 64.093em;
+	margin: 0px auto;
+	@media screen {
+		@media (max-width: 64.093em){
+			min-width: 100%;
+			max-width: 100%;
+		}
+	}
+	
+}
 .landing-section{
 	min-height: 95vh;
-	background-image: url('../images/landing.jpeg');
+	background-image: url('../images/details.png');
 	background-size: cover;
-	//background-color: $default-logo-color;
+	position: relative;
+	.section-overlay{
+		background-color: $default-logo-color;
+	}
+	.landing-content{
+		position: relative;
+		z-index: 3;
+	}
 	h1{
-		padding-top: 4em;
+		padding-top: 5em;
+		font-size: 2.3em;
 		color: #FFF;
 	}
 	h1,h3{
@@ -81,35 +108,17 @@ $default-logo-color: #E44D26;
 	height: 100vh;
 }
 .details-section{
-	background: url("../images/details.png");
-	background-size: cover;
 	background-color: $default-logo-color;
 	padding: 3em 0em;
 	position: relative;
 	.section-overlay{
-		@extend .section-overlay;
-		background-color: $default-logo-color;
-		opacity: 0.8;
-		z-index: 2;
-	}
-	.section-wrapper{
-		position: relative;
-		z-index: 3;
-		max-width: 64.093em;
-		min-width: 64.093em;
-		margin: 0px auto;
-		@media screen {
-			@media (max-width: 64.093em){
-				min-width: 100%;
-				max-width: 100%;
-			}
-		}
-		
+		background-color: #F9F9F9;
+		opacity: .92;
 	}
 	.about-us{
 		padding-bottom: 1em;
 		font-size: 1.1em;
-		color: #FFF;
+		color: #000;
 	}
 	.feature-item{
 			h2{
@@ -120,13 +129,18 @@ $default-logo-color: #E44D26;
 			}
 		}
 		.description{
-			color: #FFF;
+			color: #000;
 		}
 }
 .sponsors-section{
 	padding: 3em 0em;
+	position: relative;
 	.sponsor-list{
 		padding: 1em 0em;
+		&>div{
+			float: left;
+			padding: 10px 0px;
+		}
 		img{
 			-moz-filter: grayscale(100%);
 			-webkit-filter: grayscale(100%);
@@ -134,12 +148,46 @@ $default-logo-color: #E44D26;
 		}
 		a{
 			transition: all ease 0.3s;
+			height: 70px;
 			&:hover{
 				img{
 					filter: grayscale(0%);
 				}
 			}
 			
+		}
+	}
+}
+.footer-navigation-link{
+	overflow: hidden;
+	.footer-link{
+		height: 180px;
+		background-color: #F5F5F5;
+		a{
+			padding-top: 20px;
+			padding-left: 20px;
+			padding-right: 20px;
+			text-transform: uppercase;
+			height: 100%;
+			position: relative;
+			color: #FFF;
+			font-size: 22px;
+			font-weight: 300;
+			&.tickets{
+				background: linear-gradient(135deg, #E54624 0%, #E95D1E 100%) repeat scroll 0% 0% transparent;
+			}
+			&.schedule{
+				background-image: url('../images/footer3.png');
+				background-size: cover;
+				span{
+					z-index: 3;
+					position: relative;
+				}
+			}
+		}
+		.section-overlay{
+			background: linear-gradient(135deg, #E54624 0%, #E95D1E 100%) repeat scroll 0% 0% transparent;
+			opacity: .95;
 		}
 	}
 }
